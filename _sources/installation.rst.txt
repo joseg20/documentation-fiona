@@ -1,0 +1,39 @@
+Installation Guide
+==================
+
+Prerequisites
+-------------
+
+* **Prerequisite 1:** Have a computer with GPU(at least 6GB VRAM) and 16GB RAM with Ubuntu 22.04. To run Locally
+* **Prerequisite 2:** Haves keys to use the API of Azure and OpenAI.
+
+Installation Steps
+------------------
+
+* **Step 1:** Go to the main folder of the project and run `cd DockerImages`.
+* **Step 2:** chmod +x `Instalacion.sh` and run ./Instalacion.sh
+
+Post-Installation Setup
+-----------------------
+
+* **Configuration 1:** Check your periferics and run `nvidia-smi` to check if the GPU is working.
+* **Configuration 2:** Check your periferics on the docker-compose, specially the webcam, audio card and display number.
+
+Verification
+------------
+
+* **Check 1:** Run the hardware tests.
+* **Check 2:** Run the fiona unit tests.
+
+Troubleshooting
+---------------
+
+* **Issue 1:** Audio card not working. (ALSA ERRORS) Check your periferics with `aplay -L` and `arecord -L` around the docker-compose.yml.
+* **Issue 2:** Display errors. Check you use `xhost+` and `echo $DISPLAY` to check the display number in the docker-compose.yml.
+
+Support
+-------
+
+If you need help if problems persist.
+
+* **Contact:** felipe.torres@cenia.cl

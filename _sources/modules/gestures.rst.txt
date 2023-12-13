@@ -1,0 +1,7 @@
+Gestures Module
+===============
+
+.. automodule:: modules.gestures.arduino
+   :members:
+   :undoc-members:
+   :show-inheritance:

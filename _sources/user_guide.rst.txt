@@ -1,0 +1,40 @@
+User Guide
+==========
+
+This is the user guide for Fiona, here you can see the ways of use and the precautions to take.
+
+Getting Started
+---------------
+
+* **Step 1:** Go to the main folder of the project.
+* **Step 2:** Put your keys in the file `.env`.
+* **Step 2:** Run in your terminal `xhost +`.
+* **Step 3:** Run the command `docker-compose run fiona bash`.
+* **Step 4:** That's it you are ready to go!
+
+Features
+--------
+
+* **Feature 1:** Talk and listen to you and response your questions.
+* **Feature 2:** See the people with bounding boxes and recognize them.
+* **Feature 3:** Gesticulate with the eyes and the mouth.
+
+Usage
+-----
+
+* **Usage Tip 1:** Say "Fiona" to start the conversation.
+* **Usage Tip 2:** When Fiona is listening her led is blue.
+
+FAQ
+---
+
+* **Q:** Which are the common problems of Fiona?
+* **A:** Sometimes she doesn't understand you, so you have to repeat the question.
+
+* **Q:** Which are the critical problems of Fiona, actually?
+* **A:** When OpenAI is down, she can't answer your questions.
+
+Support
+-------
+
+* **Contact:** felipe.torres@cenia.cl

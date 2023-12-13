@@ -1,0 +1,7 @@
+Awareness Module
+================
+
+.. automodule:: modules.awareness.langchain
+   :members:
+   :undoc-members:
+   :show-inheritance:

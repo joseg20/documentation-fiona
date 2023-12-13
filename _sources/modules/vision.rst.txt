@@ -1,0 +1,17 @@
+Vision Module
+=============
+
+.. automodule:: modules.vision.vision
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: modules.vision.face
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: modules.vision.hand
+   :members:
+   :undoc-members:
+   :show-inheritance:

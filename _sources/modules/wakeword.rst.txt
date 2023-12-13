@@ -1,0 +1,7 @@
+Wakeword Module
+===============
+
+.. automodule:: modules.wakeword.vosk
+   :members:
+   :undoc-members:
+   :show-inheritance:

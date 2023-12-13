@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vision Module &mdash; Fiona 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Brain Module" href="brain.html" />
+    <link rel="prev" title="Prober Module" href="prober.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fiona
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Learn More</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="talk.html">Talk Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awareness.html">Awareness Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gestures.html">Gestures Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="listen.html">Listen Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prober.html">Prober Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Vision Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modules.vision.vision.Vision"><code class="docutils literal notranslate"><span class="pre">Vision</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modules.vision.vision.Vision.get_finger_count"><code class="docutils literal notranslate"><span class="pre">Vision.get_finger_count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modules.vision.vision.Vision.get_locations_reference"><code class="docutils literal notranslate"><span class="pre">Vision.get_locations_reference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modules.vision.vision.Vision.process_location"><code class="docutils literal notranslate"><span class="pre">Vision.process_location()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modules.vision.vision.Vision.process_video"><code class="docutils literal notranslate"><span class="pre">Vision.process_video()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.vision.face.Face"><code class="docutils literal notranslate"><span class="pre">Face</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modules.vision.face.Face.draw_debug"><code class="docutils literal notranslate"><span class="pre">Face.draw_debug()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modules.vision.face.Face.draw_faces"><code class="docutils literal notranslate"><span class="pre">Face.draw_faces()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modules.vision.face.Face.find_faces"><code class="docutils literal notranslate"><span class="pre">Face.find_faces()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modules.vision.face.Face.load_faces_pickle"><code class="docutils literal notranslate"><span class="pre">Face.load_faces_pickle()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#modules.vision.hand.Hand"><code class="docutils literal notranslate"><span class="pre">Hand</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modules.vision.hand.Hand.draw_fingers"><code class="docutils literal notranslate"><span class="pre">Hand.draw_fingers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modules.vision.hand.Hand.find_fingers"><code class="docutils literal notranslate"><span class="pre">Hand.find_fingers()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="brain.html">Brain Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wakeword.html">Wakeword Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">Models</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fiona</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">Modules</a></li>
+      <li class="breadcrumb-item active">Vision Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/vision.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-modules.vision.vision">
+<span id="vision-module"></span><h1>Vision Module<a class="headerlink" href="#module-modules.vision.vision" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="modules.vision.vision.Vision">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modules.vision.vision.</span></span><span class="sig-name descname"><span class="pre">Vision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prober_instance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.vision.vision.Vision" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the Vision module of Fiona, responsible for
+processing video frames and coordinating face and hand
+detection functionalities.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>prober_instance (object): An instance of the prober module, used to
+register events.
+detect_fingers (bool): Flag to enable or disable finger detection.
+detect_faces (bool): Flag to enable or disable face detection.
+video_capture (cv2.VideoCapture): Video capture object for
+frame processing.
+deadspace (float): Deadspace parameter for processing.
+font (cv2.FONT_*): Font used for drawing text on frames.
+face_detector (Face): Face detection processor instance.
+hand_detector (Hand): Hand detection processor instance.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="modules.vision.vision.Vision.get_finger_count">
+<span class="sig-name descname"><span class="pre">get_finger_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#modules.vision.vision.Vision.get_finger_count" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the count of detected fingers.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>None</p>
+</dd>
+<dt>Returns:</dt><dd><p>int: Count of detected fingers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modules.vision.vision.Vision.get_locations_reference">
+<span class="sig-name descname"><span class="pre">get_locations_reference</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#modules.vision.vision.Vision.get_locations_reference" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the reference locations of detected faces.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>None</p>
+</dd>
+<dt>Returns:</dt><dd><p>list: List of face coordinates.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modules.vision.vision.Vision.process_location">
+<span class="sig-name descname"><span class="pre">process_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_locations</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#modules.vision.vision.Vision.process_location" title="Link to this definition"></a></dt>
+<dd><p>Processes the location of detected faces for further usage.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>frame (np.array): The current video frame.
+face_locations (list): List of face coordinates detected.</p>
+</dd>
+<dt>Returns:</dt><dd><p>proccesed_list_cords (list): Processed list of coordinates
+and deadspace.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modules.vision.vision.Vision.process_video">
+<span class="sig-name descname"><span class="pre">process_video</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#modules.vision.vision.Vision.process_video" title="Link to this definition"></a></dt>
+<dd><p>Processes video frames, detecting faces and fingers,
+and displaying the results.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>None</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-modules.vision.face">
+<dt class="sig sig-object py" id="modules.vision.face.Face">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modules.vision.face.</span></span><span class="sig-name descname"><span class="pre">Face</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prober_instance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadspace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.35</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.vision.face.Face" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the Face detection and processing functionality
+within the Vision module of Fiona.</p>
+<p>This class is responsible for detecting faces in video frames,
+drawing debug lines and face rectangles, and managing face data.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>prober_instance (object): An instance of the prober module,
+used to register events.
+deadspace (float): Margin around the detected face area where
+no processing is done.
+saved_faces_path (Path): Path to the saved faces data file.
+images_path (Path): Path to the directory containing images.
+saved_faces (dict): Dictionary containing encodings and names
+of saved faces.
+face_list_cords (List): List of coordinates of detected faces.
+frame (np.ndarray): Current frame for face detection.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="modules.vision.face.Face.draw_debug">
+<span class="sig-name descname"><span class="pre">draw_debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.vision.face.Face.draw_debug" title="Link to this definition"></a></dt>
+<dd><p>Draws debug lines on the frame to assist in visualizing
+the processing area.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>frame (np.ndarray): The frame on which to draw debug lines.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modules.vision.face.Face.draw_faces">
+<span class="sig-name descname"><span class="pre">draw_faces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_locations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_names</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.vision.face.Face.draw_faces" title="Link to this definition"></a></dt>
+<dd><p>Draws rectangles and names around detected faces in the frame.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>frame (np.ndarray): The frame on which to draw.
+face_locations (List): List of face locations.
+face_names (List[str]): List of names corresponding to
+the detected faces.</p>
+</dd>
+<dt>Returns:</dt><dd><p>np.ndarray: The frame with drawn rectangles and names.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modules.vision.face.Face.find_faces">
+<span class="sig-name descname"><span class="pre">find_faces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#modules.vision.face.Face.find_faces" title="Link to this definition"></a></dt>
+<dd><p>Detects faces in the given image and identifies them.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>image (np.ndarray): The image/frame in which to detect faces.
+draw (bool, optional): Flag to draw rectangles on detected faces.
+Default is True.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Tuple[List[int], List[str]]: Tuple containing face locations
+and names.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modules.vision.face.Face.load_faces_pickle">
+<span class="sig-name descname"><span class="pre">load_faces_pickle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.vision.face.Face.load_faces_pickle" title="Link to this definition"></a></dt>
+<dd><p>Loads face data from a pickle file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>None</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing encodings and names
+of saved faces.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-modules.vision.hand">
+<dt class="sig sig-object py" id="modules.vision.hand.Hand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modules.vision.hand.</span></span><span class="sig-name descname"><span class="pre">Hand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prober_instance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detectionCon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.85</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxHands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.vision.hand.Hand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the Hand detection and processing
+functionality within the Vision module of Fiona.</p>
+<p>This class is responsible for detecting hands in video
+frames and drawing the count of detected fingers.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>prober_instance (object): An instance of the prober
+module, used to register events.
+detectionCon (float): Detection confidence threshold
+for the hand detector.
+maxHands (int): Maximum number of hands to detect.
+detector (HandDetector): Hand detector object from
+cvzone.
+finger_count (int): Count of fingers detected in the
+current frame.
+face_list_cords (list): List of coordinates of detected
+faces (currently unused).
+font (cv2.FONT_*): Font used for drawing text on frames.
+font_scale (float): Scale of the font used in drawing.
+font_thikness (int): Thickness of the font used in drawing.
+font_color (tuple): Color of the font used in drawing.
+background_color (tuple): Background color used in drawing.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="modules.vision.hand.Hand.draw_fingers">
+<span class="sig-name descname"><span class="pre">draw_fingers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modules.vision.hand.Hand.draw_fingers" title="Link to this definition"></a></dt>
+<dd><p>Draws the count of detected fingers on the frame.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>frame (np.ndarray): The frame on which to draw the finger
+count.</p>
+</dd>
+<dt>Returns:</dt><dd><p>np.ndarray: The frame with the finger count drawn.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modules.vision.hand.Hand.find_fingers">
+<span class="sig-name descname"><span class="pre">find_fingers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#modules.vision.hand.Hand.find_fingers" title="Link to this definition"></a></dt>
+<dd><p>Detects fingers in the given frame using hand detection.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>frame (np.ndarray): The frame in which to detect fingers.
+draw (bool, optional): Flag to draw detected hands on the
+frame. Default is False.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="prober.html" class="btn btn-neutral float-left" title="Prober Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="brain.html" class="btn btn-neutral float-right" title="Brain Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Felipe Torres.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

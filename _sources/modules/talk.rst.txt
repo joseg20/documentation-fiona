@@ -1,0 +1,12 @@
+Talk Module
+===========
+
+.. automodule:: modules.talk.azure
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: modules.talk.elevenlab
+   :members:
+   :undoc-members:
+   :show-inheritance:

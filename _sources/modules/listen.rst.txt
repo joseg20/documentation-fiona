@@ -1,0 +1,7 @@
+Listen Module
+=============
+
+.. automodule:: modules.listen.azure
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,39 @@
+.. Fiona documentation master file, created by
+   sphinx-quickstart on Sat Dec  9 14:32:53 2023.
+   This file has been customized to provide a clear, well-structured, and comprehensive overview of Fiona's documentation.
+
+=================================
+Welcome to Fiona's Documentation
+=================================
+
+Fiona is a multi-modal android that can be used to perform a variety of tasks.
+It is designed to be easy to use and easy to extend. Fiona is built on python and arduino.
+
+.. image:: fiona.png
+   :align: center
+   :width: 100px
+
+If you are new to Fiona, start here:
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started
+
+   installation
+   user_guide
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Learn More
+
+   modules
+   models
+
+Indices and Tables
+==================
+
+Useful indices and tables for quick reference:
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
